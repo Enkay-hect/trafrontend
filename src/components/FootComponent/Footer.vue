@@ -8,7 +8,13 @@
       <div class="space-y-8">
 
         <div class="flex items-center gap-2">
-          <div class="text-2xl font-bold">TechRoom LOGO here</div>
+          <span class="text-2xl font-bold">
+            <img
+                  src="/images/Logo/logo_white.png"
+                  alt=""
+                  class=" w-full h-full object-contain b-2 border-red-200"
+              />
+          </span>
         </div>
 
         <div>

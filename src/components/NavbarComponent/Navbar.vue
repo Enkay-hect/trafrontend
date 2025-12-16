@@ -4,7 +4,13 @@
       <div class="flex items-center justify-between h-full">
 
         <div class="flex items-center">
-          <span class="text-2xl font-semibold" style="color:#1e40af">LOGO</span>
+          <span class="text-2xl font-semibold" style="color:#1e40af">
+            <img
+                  src="/images/Logo/logo_blue.png"
+                  alt=""
+                  class=" w-full h-full object-contain b-2 border-red-200"
+              />
+          </span>
         </div>
 
         <div class="hidden lg:flex items-center space-x-10">

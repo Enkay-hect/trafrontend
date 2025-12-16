@@ -84,7 +84,7 @@ import { ref, onMounted, onBeforeUnmount } from "vue";
         key: "academy",
         title: "Master Frontend, Backend, Figma, Data Analytics & App Development",
         desc: "Learn essential tech skills through structured, hands-on lessons designed to guide you from beginner to professional.",
-        btnPrimary: "Start Learning Free",
+        btnPrimary: "Start Learning",
         btnSecondary: "Explore All Courses",
     },
     ];

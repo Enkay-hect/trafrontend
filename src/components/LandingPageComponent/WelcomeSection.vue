@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <section class="w-full bg-gray-200 py-16 lg:py-24">
+  <section class="w-full bg-gray-200 py-16 lg:py-24" id="workspace">
     <div class="max-w-7xl mx-auto px-6">
 
 

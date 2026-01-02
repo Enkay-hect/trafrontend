@@ -14,7 +14,7 @@
           :key="currentSlide"
           :initial="{ opacity: 0, x: -60 }"
           :enter="{ opacity: 1, x: 0 }"
-          :transition="{ duration: 0.6, ease: 'easeOut' }"
+          :transition="{ duration: 1.5, ease: 'easeOut' }"
           class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
         >
 

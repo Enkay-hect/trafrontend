@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full bg-white py-16 lg:py-24">
+  <section class="w-full bg-white py-16 lg:py-24" id="academy">
     <div class="max-w-7xl mx-auto px-6">
 
 

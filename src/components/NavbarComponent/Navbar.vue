@@ -15,15 +15,25 @@
 
         <div class="hidden lg:flex items-center space-x-10">
 
+          <div class="text-base font-medium text-gray-700 hover:text-[#1e40af] cursor-pointer">
+              Home
+          </div>
+          
           <motion-div
-            v-for="item in ['Home','Workspace','Courses']"
-            :key="item"
+            v-for="item in navItems"
+            :key="item.id"
             :initial="{ opacity: 1, y: 0 }"
             :hover="{ y: -2, scale: 1.05 }"
             :transition="{ type:'spring', stiffness:300, damping:24 }"
             class="text-base font-medium text-gray-700 hover:text-[#1e40af] cursor-pointer"
           >
-            {{ item }}
+            <!-- {{ item }} -->
+                <router-link
+                  :to="{ path: item.path, hash: item.hash }"
+                  class="text-base font-medium text-gray-700 hover:text-[#1e40af]"
+                >
+                  {{ item.label }}
+                </router-link>
           </motion-div>
 
         <!-- services dropdown -->
@@ -33,7 +43,7 @@
           @mouseleave="servicesOpen = false"
         >
 
-        <motion-div
+        <!-- <motion-div
             :initial="{ opacity: 1, y: 0 }"
             :hover="{ y: -2, scale: 1.05 }"
             :transition="{ type:'spring', stiffness:300, damping:24 }"
@@ -43,10 +53,10 @@
             <span class="text-xs">▼</span>
           </motion-div>
 
-          <div class="absolute left-0 top-full h-3 w-full"></div>
+          <div class="absolute left-0 top-full h-3 w-full"></div> -->
 
           <!-- Dropdown -->
-          <motion-div
+          <!-- <motion-div
             v-if="servicesOpen"
             :initial="{ opacity: 0, y: 10 }"
             :enter="{ opacity: 1, y: 0 }"
@@ -68,19 +78,19 @@
                 Data Analytics
               </div>
             </div>
-          </motion-div>
+          </motion-div> -->
         </div>
 
 
 
-          <motion-div
+          <!-- <motion-div
             :initial="{ opacity: 1, y: 0 }"
             :hover="{ y: -2, scale: 1.05 }"
             :transition="{ type:'spring', stiffness:300, damping:24 }"
             class="text-base font-medium text-gray-700 hover:text-[#1e40af] cursor-pointer"
           >
             About Us
-          </motion-div>
+          </motion-div> -->
         </div>
 
         <div class="flex items-center gap-4">
@@ -127,12 +137,18 @@
       <div class="px-6 pt-6 pb-12 space-y-5">
 
         <div
-          v-for="item in ['Home','Workspace','Courses']"
-          :key="item"
+          v-for="item in navItems"
+          :key="item.id"
           @click="closeMobileMenu"
           class="text-gray-800 text-lg font-medium py-2 cursor-pointer"
         >
-          {{ item }}
+          <router-link
+            :to="{ path: item.path, hash: item.hash }"
+            @click="mobileOpen = false"
+            class="block text-lg font-medium text-gray-800 py-2"
+          >
+            {{ item.label }}
+          </router-link>
         </div>
 
         <div>
@@ -245,6 +261,15 @@ window.addEventListener('resize', () => {
     servicesOpenMobile.value = false
   }
 })
+
+
+const navItems = [
+  // { label: 'Home', path: '/', hash: '#home' },
+  { label: 'Workspace', path: '/', hash: '#workspace' },
+  { label: 'Academy', path: '/', hash: '#academy' },
+  { label: 'About Us',  }
+]
+
 </script>
 
 <style scoped>

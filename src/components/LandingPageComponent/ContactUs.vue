@@ -19,9 +19,10 @@
           while-hover="{ scale: 1.05, y: -4 }"
           class="inline-block mt-10"
         >
-          <button class="bg-[#1e3a8a] hover:bg-[#162e6e] text-white font-semibold rounded-full px-10 py-4 text-lg">
+          <a href="https://techroomservices.com/contact" target="_blank"
+            class="bg-[#1e3a8a] hover:bg-[#162e6e] text-white font-semibold rounded-full px-10 py-4 text-lg">
             Contact Us
-          </button>
+          </a>
         </motion-div>
       </div>
 

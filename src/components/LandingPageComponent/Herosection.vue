@@ -29,18 +29,18 @@
 
             <div class="flex flex-col sm:flex-row gap-4">
 
-              <button
+              <!-- <button
                 class="px-8 py-3 border border-teal-500 text-teal-600 font-medium rounded-xl hover:bg-teal-50 transition"
               >
                 {{ slides[currentSlide].btnSecondary }}
-              </button>
+              </button> -->
 
 
-              <button
+              <a :href="slides[currentSlide].link" target="_blank"
                 class="px-8 py-3 bg-[#1e3a8a] text-white font-medium rounded-xl hover:bg-[#162c6b] transition"
               >
                 {{ slides[currentSlide].btnPrimary }}
-              </button>
+              </a>
             </div>
           </div>
 
@@ -73,20 +73,22 @@
 import { ref, onMounted, onBeforeUnmount } from "vue";
 
     const slides = [
-    {
-        key: "workspace",
-        title: "Premium Workspace for Builders & Creators",
-        desc: "A creative environment that gives you access to tools, community, and limitless inspiration to build your next big idea.",
-        btnPrimary: "Get Membership",
-        btnSecondary: "Take a Tour",
-    },
-    {
-        key: "academy",
-        title: "Master Frontend, Backend, Figma, Data Analytics & App Development",
-        desc: "Learn essential tech skills through structured, hands-on lessons designed to guide you from beginner to professional.",
-        btnPrimary: "Start Learning",
-        btnSecondary: "Explore All Courses",
-    },
+      {
+          key: "workspace",
+          title: "Premium Workspace for Builders & Creators",
+          desc: "A creative environment that gives you access to tools, community, and limitless inspiration to build your next big idea.",
+          btnPrimary: "Get Membership",
+          btnSecondary: "Take a Tour",
+          link: "https://workspace.techroom.ng/"
+      },
+      {
+          key: "academy",
+          title: "Master Frontend, Backend, Figma, Data Analytics & App Development",
+          desc: "Learn essential tech skills through structured, hands-on lessons designed to guide you from beginner to professional.",
+          btnPrimary: "Explore Our Courses",
+          btnSecondary: "Explore All Courses",
+          link: "https://forms.gle/FTWqkCZn1dpqSPjJ6"
+      },
     ];
 
     const currentSlide = ref(0);

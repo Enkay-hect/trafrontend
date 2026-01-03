@@ -116,11 +116,11 @@
         :transition="{ duration: 0.6, delay: 0.35 }"
         class="mt-8 flex justify-center"
       >
-        <button
+        <a href="https://workspace.techroom.ng/" target="_blank"
           class="px-8 py-3 bg-[#0f1b58] text-white font-medium rounded-lg hover:bg-[#0c1545] transition"
         >
           Subscribe for workspace
-        </button>
+        </a>
       </motion-div>
 
     </div>

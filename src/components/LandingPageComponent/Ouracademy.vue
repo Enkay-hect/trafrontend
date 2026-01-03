@@ -55,11 +55,11 @@
 
 
           <div class="pt-4">
-            <button
+            <a href="https://forms.gle/FTWqkCZn1dpqSPjJ6" target="_blank"
               class="px-8 py-3 bg-[#0f172a] hover:bg-[#1e293b] text-white rounded-lg font-medium shadow-md transition"
             >
-              Go to Academy
-            </button>
+              Explore our Courses
+            </a>
           </div>
 
         </motion-div>
@@ -86,7 +86,7 @@ const courses = [
     icon: "/images/academy/right-tick.png",
   },
   {
-    name: "Data analysis",
+    name: "Data analytics",
     icon: "/images/academy/right-tick.png",
   },
    {

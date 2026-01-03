@@ -13,7 +13,7 @@
           </span>
         </div>
 
-        <div class="hidden lg:flex items-center space-x-10">
+        <div class="hidden lg:flex items-center space-x-10 gap-10">
 
           <div class="text-base font-medium text-gray-700 hover:text-[#1e40af] cursor-pointer">
               Home
@@ -95,7 +95,7 @@
 
         <div class="flex items-center gap-4">
 
-          <motion-div
+      <!--    <motion-div
             class="hidden lg:block"
             :initial="{ scale:1 }"
             :hover="{ scale:1.05 }"
@@ -106,7 +106,7 @@
             >
               Sign Up
             </button>
-          </motion-div>
+          </motion-div> -->
 
           <button
             @click="toggleMobile"
@@ -193,7 +193,7 @@
       About Us
     </div>
 
-    <motion-div
+   <!-- <motion-div
       :initial="{ scale: 1 }"
       :hover="{ scale: 1.05 }"
       :transition="{ type: 'spring', stiffness: 300, damping: 22 }"
@@ -205,7 +205,7 @@
       >
         Sign Up
       </button>
-    </motion-div>
+    </motion-div> -->
 
   </div>
 </motion-div>

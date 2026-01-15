@@ -36,11 +36,17 @@
               </button> -->
 
 
-              <a :href="slides[currentSlide].link" target="_blank"
+              <a :href="slides[currentSlide].link" target="_blank" v-if="currentSlide === 0"
                 class="px-8 py-3 bg-[#1e3a8a] text-white font-medium rounded-xl hover:bg-[#162c6b] transition"
               >
                 {{ slides[currentSlide].btnPrimary }}
               </a>
+
+              <router-link :to="slides[currentSlide].link" target="_blank" v-else
+                class="px-8 py-3 bg-[#1e3a8a] text-white font-medium rounded-xl hover:bg-[#162c6b] transition"
+              >
+                {{ slides[currentSlide].btnPrimary }}
+              </router-link >
             </div>
           </div>
 
@@ -86,8 +92,8 @@ import { ref, onMounted, onBeforeUnmount } from "vue";
           title: "Master Frontend, Backend, Figma, Data Analytics & App Development",
           desc: "Learn essential tech skills through structured, hands-on lessons designed to guide you from beginner to professional.",
           btnPrimary: "Explore Our Courses",
-          btnSecondary: "Explore All Courses",
-          link: "https://forms.gle/FTWqkCZn1dpqSPjJ6"
+          btnSecondary: "Sign Up",
+          link: { name: "academy.signup" }      
       },
     ];
 

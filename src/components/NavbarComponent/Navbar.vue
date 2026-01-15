@@ -1,5 +1,5 @@
 <template>
-  <nav class="bg-white border-b border-gray-200 h-20 flex items-center">
+  <nav class="bg-white border-b border-gray-200 h-20 flex items-center ">
     <div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-full">
 
@@ -35,6 +35,33 @@
                   {{ item.label }}
                 </router-link>
           </motion-div>
+
+
+
+          <!-- for dark mode -->
+           <!-- <button
+              @click="toggleTheme"
+              class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white hover:ring-2 hover:ring-blue-500 transition"
+              :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
+            >
+              <div v-if="isDark">
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 3v1m0 16v1m8.66-12.66l-.71.71M4.05 19.95l-.71.71m16.1 0l-.71-.71M4.05 4.05l-.71-.71M21 12h-1M4 12H3m16.95 4.95l-.71-.71M6.76 6.76l-.71-.71" />
+                </svg>
+              </div>
+              <div v-else>
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+                </svg>
+              </div>
+            </button> -->
+
+
 
         <!-- services dropdown -->
         <div
@@ -217,7 +244,16 @@
 
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
+import { ref, onMounted, onBeforeUnmount, watch, computed } from 'vue'
+import { useThemeStore } from '@/stores/useThemeStore.js'
+
+const themeStore = useThemeStore()
+const isDark = computed(() => themeStore.dark)
+
+const toggleTheme = () => {
+  themeStore.toggle()
+  localStorage.setItem('darkMode', themeStore.dark)
+}
 
 const mobileOpen = ref(false)
 const servicesOpenMobile = ref(false)

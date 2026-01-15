@@ -4,6 +4,7 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx,vue}", // adjust based on your framework
   ],
+  darkMode: 'class',
   theme: {
     extend: {},
   },

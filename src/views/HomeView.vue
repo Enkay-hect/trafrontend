@@ -1,5 +1,4 @@
 <template>
-    <Navbar />
     <Herosection />
     <WelcomeSection />
     <Ouracademy />
@@ -11,7 +10,6 @@
 </template>
 
 <script setup>
-import Navbar from '@/components/NavbarComponent/Navbar.vue';
 import Herosection from '@/components/LandingPageComponent/Herosection.vue';
 import WelcomeSection from '@/components/LandingPageComponent/WelcomeSection.vue';
 import Ouracademy from '@/components/LandingPageComponent/Ouracademy.vue';

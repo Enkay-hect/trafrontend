@@ -10,12 +10,10 @@ const axiosClient = axios.create({
 })
 
 
-// Add a request interceptor
 axiosClient.interceptors.request.use(config => {    
   const store = useRegistrationStore() 
 
-  // Only add token if it exists
-  if (store.personalInfo?.token) {
+  if (store.personalInfo?.token) { 
     config.headers.Authorization = `Bearer ${store.personalInfo.token}`
   }
 

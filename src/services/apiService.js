@@ -2,11 +2,26 @@ import axiosClient from "../axios/Axios";
 
 const StudentRegistration  = {
 
-    initializePayment : async (paymentData, callback = (data)=>{}) => {
-        await axiosClient.post('/student/register', paymentData)
+    initializeUserData : async (userData, callback = (data)=>{}) => {
+        await axiosClient.post('/user', userData)
             .then(({data})=> {
                 callback(data);
             })
+    },
+
+    initializeCourseData : async (courseData, callback = (data)=>{}) => {
+        await axiosClient.post('/user/profile', courseData)
+            .then(({data})=> {
+                callback(data);
+            })
+    },
+
+    submitFull: async (formData) => {
+        return axiosClient.post('/storeUser', formData, {
+        headers: {
+            'Content-Type': 'multipart/form-data',
+        },
+        })
     },
     
 }

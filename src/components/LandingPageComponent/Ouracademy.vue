@@ -55,11 +55,13 @@
 
 
           <div class="pt-4">
-            <a href="https://forms.gle/FTWqkCZn1dpqSPjJ6" target="_blank"
-              class="px-8 py-3 bg-[#0f172a] hover:bg-[#1e293b] text-white rounded-lg font-medium shadow-md transition"
+            <router-link to="/academy/signup" name="academy.signup" target="_blank"
+            class="px-8 py-3 bg-[#0f172a] hover:bg-[#1e293b] text-white rounded-lg font-medium shadow-md transition"
             >
-              Explore our Courses
-            </a>
+                            Explore our Courses
+
+            </router-link>
+            
           </div>
 
         </motion-div>

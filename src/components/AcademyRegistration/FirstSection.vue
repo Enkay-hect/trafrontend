@@ -1,12 +1,9 @@
 <template>
-  <!-- Full viewport minus navbar -->
   <section class=" flex items-center justify-center bg-gray-50 px-4 ">
 
-    <!-- Card -->
     <div
       class="w-full max-w-3xl bg-white rounded-2xl shadow-xl p-6 md:p-8 flex flex-col mt-10 mb-10"
     >
-      <!-- Header -->
       <div class="mb-6">
         <p class="text-sm text-gray-500">Step 1 of 4</p>
         <h2 class="text-2xl font-semibold text-gray-900 mt-1">
@@ -14,7 +11,6 @@
         </h2>
       </div>
 
-      <!-- Scrollable Form Body -->
       <div class="flex-1 overflow-y-auto pr-2">
         <form class="grid grid-cols-1 md:grid-cols-2 gap-5">
 
@@ -50,7 +46,7 @@
               WhatsApp Phone Number <span class="text-red-500">*</span>
             </label>
             <input
-              v-model="form.phone"
+              v-model="form.phone_number"
               type="tel"
               placeholder="+234..."
               class="mt-1 w-full rounded-lg border border-gray-300 px-4 py-2 focus:ring-2 focus:ring-blue-600 focus:outline-none"
@@ -66,7 +62,7 @@
               <label class="flex items-center gap-2 text-sm">
                 <input
                   type="radio"
-                  value="Male"
+                  value="male"
                   v-model="form.gender"
                   class="text-blue-600"
                 />
@@ -76,7 +72,7 @@
               <label class="flex items-center gap-2 text-sm">
                 <input
                   type="radio"
-                  value="Female"
+                  value="female"
                   v-model="form.gender"
                   class="text-blue-600"
                 />
@@ -91,24 +87,24 @@
               Date of birth <span class="text-red-500">*</span>
             </label>
             <input
-              v-model="form.dob"
+              v-model="form.date_of_birth"
               type="date"
               class="mt-1 w-full rounded-lg border border-gray-300 px-4 py-2 focus:ring-2 focus:ring-blue-600 focus:outline-none"
             />
           </div>
 
        
-          <!-- Gender -->
+          <!-- Marital Status -->
           <div>
             <label class="block text-sm font-medium text-gray-700">
-              Gender <span class="text-red-500">*</span>
+              Marital Status <span class="text-red-500">*</span>
             </label>
             <div class="mt-2 flex items-center gap-6">
               <label class="flex items-center gap-2 text-sm">
                 <input
                   type="radio"
                   value="single"
-                  v-model="form.maritalStatus"
+                  v-model="form.marital_status"
                   class="text-blue-600"
                 />
                 Single
@@ -117,8 +113,8 @@
               <label class="flex items-center gap-2 text-sm">
                 <input
                   type="radio"
-                  value="Married"
-                  v-model="form.maritalStatus"
+                  value="married"
+                  v-model="form.marital_status"
                   class="text-blue-600"
                 />
                 Married

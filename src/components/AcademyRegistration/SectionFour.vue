@@ -1,6 +1,6 @@
 <template>
   <section class="h-full flex flex-col bg-gray-50 rounded-xl border border-gray-200">
-    <!-- Header -->
+
     <div class="px-6 py-4 border-b bg-white rounded-t-xl">
       <h2 class="text-2xl font-semibold text-gray-800">
         Final Acknowledgement & Uploads
@@ -10,7 +10,7 @@
       </p>
     </div>
 
-    <!-- Scrollable content -->
+
     <div class="flex-1 overflow-y-auto px-6 py-6 space-y-8">
       <!-- Terms -->
       <div class="bg-white border rounded-lg p-6 space-y-4">
@@ -113,34 +113,39 @@
     </div>
 
     <!-- Submit Button -->
-    <div class="px-6 py-4 border-t bg-white rounded-b-xl">
-      <button
-        :disabled="!canSubmit"
-        @click="submitForm"
-        class="w-full py-4 rounded-lg font-semibold text-white transition
-          bg-[#1e3a8a]
-          disabled:bg-gray-400 disabled:cursor-not-allowed
-          hover:bg-[#162e6e]"
-      >
-        Submit Registration
-      </button>
-    </div>
+      <div class="px-6 py-4 border-t bg-white rounded-b-xl">
+        <button
+          :disabled="!store.canSubmit || apiStore.submitting"
+          @click="submitFinal"
+          class="ml-auto px-8 py-3 rounded-lg bg-blue-800 text-white"
+        >
+          Submit Application
+        </button>
+      </div>
   </section>
 </template>
 
 <script setup>
-import { computed } from 'vue'
 import { useRegistrationStore } from '@/stores/UserRegistrationStore.js'
+import { RegistrationApiStore } from '@/stores/RegistrationApiStore.js'
+import { useRouter } from 'vue-router'
+const router = useRouter()
 
 const store = useRegistrationStore()
 
-const canSubmit = computed(() => {
-  return (
-    store.agreedToTerms &&
-    store.uploads.passportPhoto &&
-    store.uploads.paymentProof
-  )
-})
+const apiStore = RegistrationApiStore()
+
+const submitFinal = async () => {
+  try {
+    await apiStore.submitFullRegistration(store)
+    alert('Submission successful') 
+    // router.push('/')
+  } catch (e) {
+    console.error(e)
+    alert('Submission failed. Please try again.')
+  }
+}
+
 
 const handleFileUpload = (event, type) => {
   const file = event.target.files[0]
@@ -151,18 +156,5 @@ const handleFileUpload = (event, type) => {
   })
 }
 
-const submitForm = () => {
-  if (!canSubmit.value) return
-
-  // Final submission logic (API later)
-  console.log('SUBMITTED DATA:', {
-    personalInfo: store.personalInfo,
-    courseDetails: store.courseDetails,
-    packages: store.selectedPackages,
-    uploads: store.uploads,
-  })
-
-  alert('Registration submitted successfully!')
-}
 </script>
 

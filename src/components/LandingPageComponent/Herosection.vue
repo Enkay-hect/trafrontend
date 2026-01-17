@@ -93,7 +93,7 @@ import { ref, onMounted, onBeforeUnmount } from "vue";
           desc: "Learn essential tech skills through structured, hands-on lessons designed to guide you from beginner to professional.",
           btnPrimary: "Explore Our Courses",
           btnSecondary: "Sign Up",
-          link: { name: "academy.signup" }      
+          link: { name: "academy.signup" }       
       },
     ];
 

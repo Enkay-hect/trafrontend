@@ -23,19 +23,14 @@
 
         <button
           v-if="store.step < 4"
-          :disabled="!store.canProceed"
+          :disabled="!store.canProceed || apiStore.submitting"
           @click="store.nextStep()"
           class="ml-auto px-8 py-3 rounded-lg bg-blue-600 text-white"
         >
           Next
         </button>
 
-        <button
-          v-if="store.step === 4"
-          class="ml-auto px-8 py-3 rounded-lg bg-green-600 text-white hidden"
-        >
-          Submit
-        </button>
+      
       </div>
 
     </div>
@@ -57,17 +52,40 @@ import StepFour from '@/components/AcademyRegistration/SectionFour.vue'
 
 import { useRegistrationStore } from '@/stores/UserRegistrationStore.js'
 
+import { RegistrationApiStore } from '@/stores/RegistrationApiStore.js'
+
+const apiStore = RegistrationApiStore()
+
 
 const store = useRegistrationStore()
 
 const currentStep = ref(1)
 
-const nextStep = () => {
-  if (currentStep.value < 4) currentStep.value++
+
+const submitStep1 = async () => {
+  if (!store.canProceed) return
+
+  try {
+    await apiStore.submitStep1(store.personalInfo)
+    store.nextStep() // ✅ ONLY here
+  } catch (e) {
+    // handle validation errors
+  }
 }
 
-const prevStep = () => {
-  if (currentStep.value > 1) currentStep.value--
+const handleNext = async () => {
+  if (!store.canProceed) return
+
+  if (store.step === 1) {
+    await submitStep1()
+
+    // Only move forward if API succeeded
+    if (!apiStore.error) {
+      store.nextStep()
+    }
+  } else {
+    store.nextStep()
+  }
 }
 </script>
 

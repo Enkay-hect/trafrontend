@@ -8,7 +8,7 @@
   <div class="flex-1 overflow-y-auto px-6 py-6 space-y-6">
 
     <!-- Frontend -->
-    <div v-if="store.courseDetails.courseInterest === 'Frontend Development'" class="bg-white rounded-lg shadow-sm border p-6">
+    <div v-if="store.courseDetails.course_of_interest === 'Frontend Development'" class="bg-white rounded-lg shadow-sm border p-6">
       <h3 class="text-xl font-semibold text-gray-800 mb-4">Frontend Development (6 Months)</h3>
 
       <div class="space-y-3">
@@ -67,7 +67,7 @@
     </div>
 
     <!-- Backend -->
-    <div v-if="store.courseDetails.courseInterest === 'Backend Development'" class="bg-white rounded-lg shadow-sm border p-6">
+    <div v-if="store.courseDetails.course_of_interest === 'Backend Development'" class="bg-white rounded-lg shadow-sm border p-6">
       <h3 class="text-xl font-semibold text-gray-800 mb-4">Backend Development (4 Months)</h3>
       <div class="space-y-3">
         <label class="flex items-start gap-3 cursor-pointer">
@@ -112,7 +112,7 @@
     </div>
 
     <!-- Mobile App Development -->
-    <div v-if="store.courseDetails.courseInterest === 'Mobile App Development'" class="bg-white rounded-lg shadow-sm border p-6">
+    <div v-if="store.courseDetails.course_of_interest === 'Mobile App Development'" class="bg-white rounded-lg shadow-sm border p-6">
       <h3 class="text-xl font-semibold text-gray-800 mb-4">Mobile App Development (4 Months)</h3>
       <div class="space-y-3">
         <label class="flex items-start gap-3 cursor-pointer">
@@ -157,7 +157,7 @@
     </div>
 
     <!-- UI/UX -->
-    <div v-if="store.courseDetails.courseInterest === 'UI/UX'" class="bg-white rounded-lg shadow-sm border p-6">
+    <div v-if="store.courseDetails.course_of_interest === 'UI/UX'" class="bg-white rounded-lg shadow-sm border p-6">
       <h3 class="text-xl font-semibold text-gray-800 mb-4">UI/UX Design (3 Months)</h3>
       <label class="flex items-start gap-3 cursor-pointer">
         <input
@@ -174,7 +174,7 @@
     </div>
 
     <!-- Data Analytics -->
-    <div v-if="store.courseDetails.courseInterest === 'Data Analytics'" class="bg-white rounded-lg shadow-sm border p-6">
+    <div v-if="store.courseDetails.course_of_interest === 'Data Analytics'" class="bg-white rounded-lg shadow-sm border p-6">
       <h3 class="text-xl font-semibold text-gray-800 mb-2">Data Analytics (6 Months)</h3>
       <div class="space-y-3">
         <label class="flex items-start gap-3 cursor-pointer">

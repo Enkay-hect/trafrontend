@@ -4,63 +4,55 @@ import { reactive, computed } from 'vue'
 
 export const useRegistrationStore = defineStore('registration', {
   state: () => ({
-    /* ---------------- STEP CONTROL ---------------- */
     step: 1,
     maxStep: 4,
 
-    /* ---------------- STEP 1 — Personal Information ---------------- */
     personalInfo: {
       name: '',
       email: '',
-      phone: '',
+      phone_number: '',
       gender: '',
-      dob: '',
-      maritalStatus: '',
+      date_of_birth: '',
+      marital_status: '',
     },
 
-    /* ---------------- STEP 2 — Course Details ---------------- */
     courseDetails: {
-      courseInterest: '',
-      learningMode: '',
-      classSchedule: '',
+      course_of_interest: '',
+      learning_mode: '',
+      class_schedule: '',
+      student_type: ''
     },
 
-    /* ---------------- STEP 3 — Course Packages ---------------- */
     selectedPackages: [],
 
    packagePrices: {
-    /* Frontend  */
     'web_fundamentals': 150000,
     'Web_Basics': 50000,
     'JavaScript_TypeScript': 50000,
     'Frameworks': 50000,
 
-    // Backend
     'PHP/JavaScript_Fundamentals': 50000,
     'Laravel_Node.js_ExpressJS': 30000,
     'Databases': 20000,
 
-    /* Mobile App Development */
     'JS_RN_Fundamentals': 50000,
     'RN_Framework': 50000,
     'Firebase': 30000,
 
-    /* UI/UX */
     'UI/UX with Figma': 80000,
 
-    /* Data Analytics */
     'Data_Analytics A': 70000,
     'Data_Analytics B': 70000,
   },
 
 
-    /* ---------------- STEP 4 — Uploads & Acknowledgement ---------------- */
+    /* ---------------- uploads and acknowledgement ---------------- */
     uploads: {
       passportPhoto: null,
       paymentProof: null,
     },
 
-    agreedToTerms: false,
+    agreedToTerms:  false ,
   }),
 
 
@@ -71,15 +63,16 @@ export const useRegistrationStore = defineStore('registration', {
     }, 0)
   },
 
+
   /* Step-specific validation */
   canProceedStep1(state) {
-    const { name, email, phone, gender, dob, maritalStatus } = state.personalInfo
-    return !!(name && email && phone && gender && dob && maritalStatus)
+    const { name, email, phone_number, gender, date_of_birth, marital_status } = state.personalInfo
+    return !!(name && email && phone_number && gender && date_of_birth && marital_status)
   },
 
   canProceedStep2(state) {
-    const { courseInterest, learningMode, classSchedule } = state.courseDetails
-    return !!(courseInterest && learningMode && classSchedule)
+    const { course_of_interest, learning_mode, class_schedule, student_type } = state.courseDetails
+    return !!(course_of_interest && learning_mode && class_schedule && student_type)
   },
 
   canProceedStep3(state) {
@@ -88,13 +81,13 @@ export const useRegistrationStore = defineStore('registration', {
 
   canSubmit(state) {
     return (
-      state.agreedToTerms &&
-      state.uploads.passportPhoto &&
-      state.uploads.paymentProof
+       state.uploads.passportPhoto instanceof File && // ensure a file is selected
+      state.uploads.paymentProof instanceof File &&
+      state.agreedToTerms === true
     )
   },
 
-  /* 🔑 Single public gate */
+  /* step control_1 */
   canProceed(state) {
     if (state.step === 1) return this.canProceedStep1
     if (state.step === 2) return this.canProceedStep2
@@ -107,7 +100,9 @@ export const useRegistrationStore = defineStore('registration', {
 
   
   actions: {
-    /* ---------------- STEP CONTROL ---------------- */
+
+      /* step control_2 */
+
     nextStep() {
       if (this.step < this.maxStep) {
         this.step++

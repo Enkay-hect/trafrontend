@@ -139,7 +139,7 @@ const submitFinal = async () => {
   try {
     await apiStore.submitFullRegistration(store)
     alert('Submission successful') 
-    // router.push('/')
+    router.push('/')
   } catch (e) {
     console.error(e)
     alert('Submission failed. Please try again.')

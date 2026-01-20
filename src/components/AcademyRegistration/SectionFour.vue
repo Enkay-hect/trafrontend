@@ -39,7 +39,7 @@
           </li>
 
           <li>
-            <strong>Test:</strong> A test will be given at the end of every week
+            <strong>Test:</strong> A test will be given at the end of every course
             and results will be generated to determine the next stage of
             learning. Students who fail after 3 trials may be advised to
             withdraw.

@@ -46,7 +46,7 @@ export const useRegistrationStore = defineStore('registration', {
   },
 
 
-    /* ---------------- uploads and acknowledgement ---------------- */
+    /*  uploads and acknowledgement  */
     uploads: {
       passportPhoto: null,
       paymentProof: null,
@@ -138,7 +138,7 @@ export const useRegistrationStore = defineStore('registration', {
       this.agreedToTerms = value
     },
 
-    /* ---------------- PACKAGE TOGGLER ---------------- */
+    
     togglePackage(pkg) {
       if (this.selectedPackages.includes(pkg)) {
         this.selectedPackages = this.selectedPackages.filter(
@@ -153,7 +153,6 @@ export const useRegistrationStore = defineStore('registration', {
       this.selectedPackages = []
     },
 
-    /* ---------------- RESET AFTER SUBMIT ---------------- */
     resetRegistration() {
       this.$reset()
     },

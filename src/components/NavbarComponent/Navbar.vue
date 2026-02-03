@@ -16,7 +16,7 @@
         <div class="hidden lg:flex items-center space-x-10 gap-10">
 
           <div class="text-base font-medium text-gray-700 hover:text-[#1e40af] cursor-pointer">
-              Home
+              <router-link to="/">Home</router-link>
           </div>
           
           <motion-div
@@ -162,6 +162,13 @@
       class="fixed inset-0 top-[72px] z-[60] lg:hidden bg-white overflow-y-auto"
     >
       <div class="px-6 pt-6 pb-12 space-y-5">
+        <div class="text-base font-medium text-gray-700 hover:text-[#1e40af] cursor-pointer">
+            <router-link to="/"
+             @click="mobileOpen = false"
+              >
+              Home
+            </router-link>
+          </div>
 
         <div
           v-for="item in navItems"
@@ -178,61 +185,11 @@
           </router-link>
         </div>
 
-        <div>
-          <button
-            type="button"
-            @click="toggleMobileServices"
-            class="w-full flex items-center justify-between text-gray-800 text-lg font-medium py-2"
-          >
-            Our services
-            <span class="text-sm">
-              {{ servicesOpenMobile ? '▲' : '▼' }}
-            </span>
-          </button>
+      
 
-          <motion-div
-            v-if="servicesOpenMobile"
-            :initial="{ opacity: 0, height: 0 }"
-            :enter="{ opacity: 1, height: 'auto' }"
-            :leave="{ opacity: 0, height: 0 }"
-            :transition="{ duration: 0.2 }"
-            class="pl-4 overflow-hidden"
-          >
-            <div class="text-gray-600 py-2 text-base cursor-pointer" @click="closeMobileMenu">
-                Web Development
-            </div>
-            <div class="text-gray-600 py-2 text-base cursor-pointer" @click="closeMobileMenu">
-                Mobile App Development
-            </div>
-            <div class="text-gray-600 py-2 text-base cursor-pointer" @click="closeMobileMenu">
-              UI / UX Design
-            </div>
-            <div class="text-gray-600 py-2 text-base cursor-pointer" @click="closeMobileMenu">
-              Data Analytics
-            </div>
-          </motion-div>
-    </div>
+  
 
-    <div
-      class="text-gray-800 text-lg font-medium py-2 cursor-pointer"
-      @click="closeMobileMenu"
-    >
-      About Us
-    </div>
-
-   <!-- <motion-div
-      :initial="{ scale: 1 }"
-      :hover="{ scale: 1.05 }"
-      :transition="{ type: 'spring', stiffness: 300, damping: 22 }"
-      class="pt-8"
-    >
-      <button
-        class="w-full bg-[#1e3a8a] hover:bg-[#162e6e] text-white font-semibold px-6 py-4 rounded-xl shadow"
-        @click="closeMobileMenu"
-      >
-        Sign Up
-      </button>
-    </motion-div> -->
+ 
 
   </div>
 </motion-div>

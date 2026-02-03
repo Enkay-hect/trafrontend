@@ -67,7 +67,7 @@ const reasons = [
   },
   {
     title: "Mentorship",
-    icon: "/images/whysection/right-tick.png",
+    icon: "/images/whysection/verified-check-svgrepo-com.svg",
     desc:
       "Enjoy the convenience of a steady, uninterrupted power supply, ensuring your workspaces stay active and fully functional around the clock. Our facilities are equipped to support all your tech needs without interruptions.",
   },
